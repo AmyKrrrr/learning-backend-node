@@ -1,5 +1,5 @@
 const express = require('express');
-const users = require('./MOCK_DATA.json');
+let users = require('./MOCK_DATA.json');
 const fs = require('fs');
 
 const app = express();
@@ -49,24 +49,37 @@ app
         return res.json(user);
     })
     .patch((req, res) => {
-        return res.json({status: "pending"});
+        const id = Number(req.params.id);
+        const body = req.body;
+        
+        const userIndex = users.findIndex((user) => user.id === id);
+        
+        if (userIndex === -1) {
+            return res.status(404).json({ status: "error", message: "User not found" });
+        }
+
+        const updatedUser = { ...users[userIndex], ...body };
+        users[userIndex] = updatedUser;
+
+        fs.writeFile('./MOCK_DATA.json', JSON.stringify(users), (err) => {
+            return res.json({ status: "success", id: id });
+        });
     })
     .delete((req, res) => {
-        const toDel = Number(req.params.id);
+        const id = Number(req.params.id);
 
-        fs.readFile('./MOCK_DATA.json', "utf-8", (err, data) => {
-            const users = JSON.parse(data);
+        const remUsers = users.filter((user) => user.id !== id);
+        if(remUsers.length === users.length) {
+            return res.status(404).json({ status: "error", message: "User not found" });
+        }
 
-            const remainingUsers = users.filter(user => user.id !== toDel);
+        users = remUsers;
 
-            fs.writeFile('./MOCK_DATA.json', JSON.stringify(remainingUsers, null, 2), (err) => {
-                return res.json({
-                    status: "Deleted Successfully",
-                    id: toDel
-                });
-            });
-        });
+        fs.writeFile('./MOCK_DATA.json', JSON.stringify(remUsers), (err) => {
+            return res.json({status: "success", id: id});
+        })
     });
+
 
 app.post("/api/users", (req, res) => {
     const body = req.body; 
