@@ -1,0 +1,10 @@
+1) GET (Recieve)
+    - Request to get something from server
+2) POST (Send)
+    - When we want to send and mutate some data in server
+3) PUT
+    - Server pe kuchh put karna. Upload image...
+4) PATCH
+    - Existing entry ko change karna.
+5) DELETE
+    - To delete something from database

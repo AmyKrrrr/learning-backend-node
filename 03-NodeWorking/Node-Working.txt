@@ -1,0 +1,18 @@
+1) Client request send karta hai server pe
+2) Requests event queue me ghusti jaati hain.
+3) Ab vo saari requests FIFO ke dwara Event Loop pe jaati
+4) Ye ek aisa loop/machine hai jo hamesha event queue pe nazar banaye rakhta hai (Koi req to nahi aayi? Koi req to nahi aayi?)
+5) Ek ek karke requests ko pickup karta hai
+6) Vo requests 2 tarike ke ho sakte hain.
+    - Non-Blocking Ops (Async Task) --> client ko result send kar diya
+    - Blocking Ops (Sync Task)
+        -- I need a thread/worker.
+        -- Assign a thread to this request and make it work. (Send to Thread Pool)
+        -- once the work is done, it returns the result.
+
+7) Threads are always limited
+    - If threads are not available in the pool, the process has to wait for a thread to be available.
+8) To optimise your project, always try to write non blocking code.
+
+// Default Thread Pool Size = 4
+// Maximum? - 16core CPU - Max = 16 threads

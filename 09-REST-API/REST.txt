@@ -1,0 +1,22 @@
+Restfull API
+ - It is a type of API which has some rules
+ SSR: Server Side Rendering
+ CSR: Cliend Side Rendering
+
+Rules:
+1. Server Client Architecture
+    - Server and Client are 2 different machines, and they should not be dependent on each other.
+    - Data ko DB se Fetch karke JSON ke form me client ko send kar dega.
+    - Client us JSON file ko read karke apne according screen pe render kar lega.
+    If we are sure that client is a web application, then send data in the form of HTML only
+    But if the client is webpage, mobile application, or whatever, then send it as JSON only.
+
+2. Always respect all HTTP methods [GET, POST, PUT, PATCH, DELETE]
+    - Repecting methods
+    GET /user - users data read karo and return the data
+    POST /user - handle new user creation
+    PATCH /user - update the user
+    - Disrespecting methods
+    POST /updateUser -- User update
+    POST /createUser -- Creates User
+

@@ -1,0 +1,27 @@
+// Version
+
+Current Version = 5.2.1
+
+1st part -> 5
+2nd part -> 2
+3rd part -> 1
+
+// 3rd part (Last Part) -- Minor Fixes (Optional Ppdate)
+
+// 2nd part -- Recommended Bug Fix (Security Update)
+
+// 1st Part -- Major / Breaking Update
+
+To manually install any specific version: npm install express@4.18.2
+
+^4.18.2 
+^ - Install all Recommended and Minor Fixes Automatically
+^ - Lock in with 4, dont change install
+
+~4.18.1 [OK]
+~4.18.2 [OK]
+~4.18.3 [OK]
+~4.18.4 [OK]
+
+4.19.1 [NO]
+    
