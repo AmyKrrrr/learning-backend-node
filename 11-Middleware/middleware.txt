@@ -1,0 +1,37 @@
+MIDDLEWARE
+- Ye ek function hai jiske paas hamare request, response ka access hota hai.
+- Ye bich me ek middle man ki tarah ya broker ki tarah kaam karta hai.
+- Kya ye ek plugin ki tarah hai? Yes.
+- Middleware har req, res pe run karte hain.
+
+    // General method:
+    [Client] --> request --> [Server - Route - Function app.get(users)]
+    [Server] ---sends respond--> [Client]
+
+    // With Middleware:
+    [Client] ---{Middleware}--> [Function]
+    Middle wre can do various oprations, validate something, invalid request.
+    -- if the Client request is ok, it gives the request to server.
+    -- else it will return the response to client (Server se baat bhi nahi karega.)
+
+- Ek code me multiple Middleware bhi ho sakte hain
+Client --> {M1} --> {M2} --> {M2} --> [Function]
+
+== Middleware functions can perform the following tasks:
+    - Execute any code.
+    - Make changes to the request and the response objects.
+    - End the request-response cycle.
+    - Call the next middleware function in the stack.
+
+app.use((req, res, next) => {
+    console.log('Hello from middleware 1');
+    // return res.json({msg: "Hello From Middleware-1"});
+    next();
+})
+
+--> next is a function that sends the req to next node (middleware or the final route)
+
+
+
+
+MORE DETAIL: https://expressjs.com/en/guide/writing-middleware.html
