@@ -1,0 +1,23 @@
+MongoDB
+
+No-SQL Document Based Database
+    SQL - Tables
+    No-SQL - Documents
+Strong support for aggregation pipelines
+Works on BSON format
+Best for Node Applications
+
+
+-----------------------------------------
+Collection - "users"
+    document-1
+    document-2
+    document-3
+-----------------------------------------
+
+BASIC COMMANDS after "$ mongosh"
+> show dbs
+> use <db_name>
+> show collections
+> db.coll.find()
+> db.coll.insert()
