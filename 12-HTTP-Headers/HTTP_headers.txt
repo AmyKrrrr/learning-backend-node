@@ -1,0 +1,28 @@
+HTTP HEADERS
+
+Story:
+Person A has a mail (envelop)
+He wants to send this mail to his friend B via Post office
+His friend B will open the mail and write a reply
+Send to A similarily
+
+The mail has some additional info
+ - From
+ - To 
+ - Weight
+
+A = Client
+B = Server
+Additional Information = HEADERS
+
+[That software is called postman for a reason]
+
+Packet ke andar actual data hota hai
+Packet ke bahar/upar kuchh info hoti hai
+    - Kahan se aayi: IP Address
+    - Kahan jana hai IP Address
+    - Datatype: JSON
+
+--> HTTP headers are an important part of the api request and response as they represent the meta data associated with the api request and response.
+
+--> Headers carry information for the request and response body.
