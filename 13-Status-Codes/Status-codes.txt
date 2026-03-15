@@ -1,0 +1,27 @@
+HTTP response status codes indicates whether a specific HTTP req has been successfully completed. 
+
+100-199 -- Informational responses
+200-299 -- successful responses
+300-399 -- redirectional messages
+400-499 -- client error responses (Ex: Accessing route which doesn't exist, posting wrong passwords)
+500-599 -- Server error responses (Ex: Server hamare request ko access nahi kar paya)
+
+For example:
+201 - created (Post karne par naya account bana)
+    return res.status(201).json({status: "success", id: users.length});
+400 - Bad request
+    While POSTing in MOCK_DATA.json, we fail to provide any value (ex: email)
+    if(!body ||
+     !body.first_name ||
+     !body.last_name ||
+     !body.email ||
+     !body.gender ||
+     !body.job_title){
+        return res.status(400).json({msg: "All fields are required...});
+    }
+401 - Unauthorized
+402 - Payment required
+403 - Forbidden
+404 - Not Found (Express khud handle kar leta hai, alag se status code nahi likhna padta, still humein likh dena chahiye, its a good practice)
+
+source: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status
