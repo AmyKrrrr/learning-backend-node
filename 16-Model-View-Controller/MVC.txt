@@ -1,0 +1,4 @@
+Controller --> Model --> View
+
+Controller Model ko manipulate karta hai
+Model view ko update karta hai
